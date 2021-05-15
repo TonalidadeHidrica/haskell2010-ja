@@ -9,7 +9,7 @@
 - <code>(<em>pattern</em>)</code> グループ化
 - <code><em>pat<sub>1</sub></em> | <em>pat<sub>2</sub></em></code> 選択
 - <code>pat<sub>&lt;pat'&gt;</sub></code> 差(`pat`によって生成された要素で、`pat'`で生成されたものを除いたもの)
-- <tt>fibonacci</tt> タイプライターフォントで表記される終端文法
+- <code>fibonacci</code> タイプライターフォントで表記される終端文法
 
 BNFのような文法をレポートを通して用いる。文法の生成は次のような形をしている:
 
@@ -60,8 +60,8 @@ nonterm -> alt<sub>1</sub> | alt<sub>2</sub> | .. | alt<sub>n</sub>
 |<em>uniLarge</em> |→| 任意の大文字またはタイトルケースのユニコード文字<br>(**訳注**: タイトルケース 先頭のみ大文字で後は小文字にするスタイル) | |
 |<em>symbol</em> |→| <em>ascSymbol</em> &#124; <em>uniSymbol</em><sub>⟨<em>special</em> &#124; `_` &#124; `"` &#124; `'`⟩</sub> | |
 | | | | |
-|<em>ascSymbol</em>|→|<tt>!</tt> &#124; <tt>#</tt> &#124; <tt>$</tt> &#124; <tt>%</tt> &#124; <tt>&</tt> &#124; <tt>⋆</tt> &#124; <tt>+</tt>  &#124; <tt>.</tt> &#124; <tt>/</tt> &#124; <tt><</tt> &#124; <tt>=</tt> &#124; <tt>></tt> &#124; <tt>?</tt> &#124; <tt>@</tt>| |
-|                |&#124;| <tt>\\</tt> &#124; <tt>^</tt> &#124; <tt>&#124;</tt> &#124; <tt>-</tt> &#124; <tt>~</tt> &#124; <tt>:</tt>| |
+|<em>ascSymbol</em>|→|<code>!</code> &#124; <code>#</code> &#124; <code>$</code> &#124; <code>%</code> &#124; <code>&</code> &#124; <code>⋆</code> &#124; <code>+</code>  &#124; <code>.</code> &#124; <code>/</code> &#124; <code><</code> &#124; <code>=</code> &#124; <code>></code> &#124; <code>?</code> &#124; <code>@</code>| |
+|                |&#124;| <code>\\</code> &#124; <code>^</code> &#124; <code>&#124;</code> &#124; <code>-</code> &#124; <code>~</code> &#124; <code>:</code>| |
 |<em>uniSymbol</em> |→| Unicodeのシンボル、または句読点 | |
 |<em>digit</em> |→| <em>ascDigit</em> &#124; <em>uniDigit</em> | |
 |<em>ascDigit</em> |→| `0` &#124; `1` &#124; … &#124; `9` | |
@@ -75,9 +75,9 @@ nonterm -> alt<sub>1</sub> | alt<sub>2</sub> | .. | alt<sub>n</sub>
 | | | `foreign` &#124; `if` &#124; `import` &#124; `in` &#124; `infix` &#124; `infixl` | |
 | | | `infixr` &#124; `instance` &#124; `let` &#124; `module` &#124; `newtype` &#124; `of` | |
 | | | `then` &#124; `type` &#124; `where` &#124; `_`| |
-|<em>varsym</em>|→|( <em>symbol</em><sub>⟨<tt>:</tt>⟩</sub> {<em>symbol</em>} )<sub>⟨reservedop &#124; dashes⟩</sub>| |
-|<em>consym</em>|→|( <tt>:</tt> {<em>symbol</em>})<sub>⟨reservedop⟩</sub>| |
-|<em>reservedop</em>|→|<tt>..</tt> &#124; <tt>:</tt> &#124; <tt>::</tt> &#124; <tt>=</tt> &#124; <tt>\\</tt> &#124; <tt>&#124;</tt> &#124; <tt><-</tt> &#124; <tt>-></tt> &#124;  <tt>@</tt> &#124; <tt>~</tt> &#124; <tt>=></tt>| |
+|<em>varsym</em>|→|( <em>symbol</em><sub>⟨<code>:</code>⟩</sub> {<em>symbol</em>} )<sub>⟨reservedop &#124; dashes⟩</sub>| |
+|<em>consym</em>|→|( <code>:</code> {<em>symbol</em>})<sub>⟨reservedop⟩</sub>| |
+|<em>reservedop</em>|→|<code>..</code> &#124; <code>:</code> &#124; <code>::</code> &#124; <code>=</code> &#124; <code>\\</code> &#124; <code>&#124;</code> &#124; <code><-</code> &#124; <code>-></code> &#124;  <code>@</code> &#124; <code>~</code> &#124; <code>=></code>| |
 |||| |
 |<em>varid</em>| | |(変数)|
 |<em>conid</em>| | |(コンストラクタ)|
@@ -269,61 +269,61 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 
 |||||
 |--|--|--|--|
-|<em>module</em>|→|<tt>module</tt> <em>modid</em> [<em>exports</em>] <tt>where</tt> <em>body</em>| |
+|<em>module</em>|→|<code>module</code> <em>modid</em> [<em>exports</em>] <code>where</code> <em>body</em>| |
 | |&#124;|	<em>body</em>| |
-|<em>body</em>|→|{ <em>impdecls</em> <tt>;</tt> <em>topdecls</em> }| |
+|<em>body</em>|→|{ <em>impdecls</em> <code>;</code> <em>topdecls</em> }| |
 | |&#124;|	{ <em>impdecls</em> }| |
 | |&#124;|	{ <em>topdecls</em> }| |
 |||||
-|<em>impdecls</em>|→|<em>impdecl<sub>1</sub></em> <tt>;</tt> … <tt>;</tt> <em>impdecl<sub>n</sub></em>|(<em>n</em> ≥ 1)|
+|<em>impdecls</em>|→|<em>impdecl<sub>1</sub></em> <code>;</code> … <code>;</code> <em>impdecl<sub>n</sub></em>|(<em>n</em> ≥ 1)|
 |||||
-|<em>exports</em>|→|( <em>export<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>export<sub>n</sub></em> [ <tt>,</tt> ] )|(<em>n</em> ≥ 0)|
+|<em>exports</em>|→|( <em>export<sub>1</sub></em> <code>,</code> … <code>,</code> <em>export<sub>n</sub></em> [ <code>,</code> ] )|(<em>n</em> ≥ 0)|
 |||||
 |<em>export</em>|→|<em>qvar</em>| |
-| |&#124;|	<em>qtycon</em> [(..) &#124; ( <em>cname<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>cname<sub>n</sub></em> )]|(<em>n</em> ≥ 0)|
-| |&#124;|	<em>qtycls</em> [(..) &#124; ( <em>qvar<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>qvar<sub>n</sub></em> )]|(<em>n</em> ≥ 0)|
-| |&#124;|	<tt>module</tt> <em>modid</em>| |
+| |&#124;|	<em>qtycon</em> [(..) &#124; ( <em>cname<sub>1</sub></em> <code>,</code> … <code>,</code> <em>cname<sub>n</sub></em> )]|(<em>n</em> ≥ 0)|
+| |&#124;|	<em>qtycls</em> [(..) &#124; ( <em>qvar<sub>1</sub></em> <code>,</code> … <code>,</code> <em>qvar<sub>n</sub></em> )]|(<em>n</em> ≥ 0)|
+| |&#124;|	<code>module</code> <em>modid</em>| |
 |||||
-|<em>impdecl</em>|→|<tt>import</tt> [<tt>qualified</tt>] <em>modid</em> [<tt>as</tt> <em>modid</em>] [<em>impspec</em>]| |
+|<em>impdecl</em>|→|<code>import</code> [<code>qualified</code>] <em>modid</em> [<code>as</code> <em>modid</em>] [<em>impspec</em>]| |
 | |&#124;| |(empty declaration)|
 |||||
-|<em>impspec</em>|→|( <em>import<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>import<sub>n</sub></em> [ <tt>,</tt> ] ) |(<em>n</em> ≥ 0)|
-| |&#124;|	<tt>hiding</tt> ( <em>import<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>import<sub>n</sub></em> [ <tt>,</tt> ] )	    |(<em>n</em> ≥ 0)|
+|<em>impspec</em>|→|( <em>import<sub>1</sub></em> <code>,</code> … <code>,</code> <em>import<sub>n</sub></em> [ <code>,</code> ] ) |(<em>n</em> ≥ 0)|
+| |&#124;|	<code>hiding</code> ( <em>import<sub>1</sub></em> <code>,</code> … <code>,</code> <em>import<sub>n</sub></em> [ <code>,</code> ] )	    |(<em>n</em> ≥ 0)|
 |||||
 |<em>import</em>|→|<em>var</em>| |
-| |&#124;|	<em>tycon</em> [ (..) &#124; ( <em>cname<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>cname<sub>n</sub></em> )]	    |(<em>n</em> ≥ 0)|
-| |&#124;|	<em>tycls</em> [(..) &#124; ( <em>var<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>var<sub>n</sub></em> )]	    |(<em>n</em> ≥ 0)|
+| |&#124;|	<em>tycon</em> [ (..) &#124; ( <em>cname<sub>1</sub></em> <code>,</code> … <code>,</code> <em>cname<sub>n</sub></em> )]	    |(<em>n</em> ≥ 0)|
+| |&#124;|	<em>tycls</em> [(..) &#124; ( <em>var<sub>1</sub></em> <code>,</code> … <code>,</code> <em>var<sub>n</sub></em> )]	    |(<em>n</em> ≥ 0)|
 |<em>cname</em>|→|<em>var</em> &#124; <em>con</em>| |
 |||||
-|<em>topdecls</em>|→|<em>topdecl<sub>1</sub></em> <tt>;</tt> … <tt>;</tt> <em>topdecl<sub>n</sub></em>	    |(<em>n</em> ≥ 0)|
-|<em>topdecl</em>|→|<tt>type</tt> <em>simpletype</em> = <em>type</em>| |
-| |&#124;|	<tt>data</tt> [<em>context</em> =>] <em>simpletype</em> [= <em>constrs</em>] [<em>deriving</em>]| |
-| |&#124;|	<tt>newtype</tt> [<em>context</em> =>] <em>simpletype</em> = <em>newconstr</em> [<em>deriving</em>]| |
-| |&#124;|	<tt>class</tt> [<em>scontext</em> =>] <em>tycls</em> <em>tyvar</em> [<tt>where</tt> <em>cdecls</em>]| |
-| |&#124;|	<tt>instance</tt> [<em>scontext</em> =>] <em>qtycls</em> <em>inst</em> [<tt>where</tt> <em>idecls</em>]| |
-| |&#124;|	<tt>default</tt> (type1 <tt>,</tt> … <tt>,</tt> <em>type<sub>n</sub></em>)	    |(<em>n</em> ≥ 0)|
-| |&#124;|	<tt>foreign</tt> <em>fdecl</em>| |
+|<em>topdecls</em>|→|<em>topdecl<sub>1</sub></em> <code>;</code> … <code>;</code> <em>topdecl<sub>n</sub></em>	    |(<em>n</em> ≥ 0)|
+|<em>topdecl</em>|→|<code>type</code> <em>simpletype</em> = <em>type</em>| |
+| |&#124;|	<code>data</code> [<em>context</em> =>] <em>simpletype</em> [= <em>constrs</em>] [<em>deriving</em>]| |
+| |&#124;|	<code>newtype</code> [<em>context</em> =>] <em>simpletype</em> = <em>newconstr</em> [<em>deriving</em>]| |
+| |&#124;|	<code>class</code> [<em>scontext</em> =>] <em>tycls</em> <em>tyvar</em> [<code>where</code> <em>cdecls</em>]| |
+| |&#124;|	<code>instance</code> [<em>scontext</em> =>] <em>qtycls</em> <em>inst</em> [<code>where</code> <em>idecls</em>]| |
+| |&#124;|	<code>default</code> (type1 <code>,</code> … <code>,</code> <em>type<sub>n</sub></em>)	    |(<em>n</em> ≥ 0)|
+| |&#124;|	<code>foreign</code> <em>fdecl</em>| |
 | |&#124;|	<em>decl</em>| |
 |||||
-|<em>decls</em>|→|{ <em>decl<sub>1</sub></em> <tt>;</tt> … <tt>;</tt> <em>decl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
+|<em>decls</em>|→|{ <em>decl<sub>1</sub></em> <code>;</code> … <code>;</code> <em>decl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
 |<em>decl</em>|→|<em>gendecl</em>| |
 | |&#124;|	(<em>funlhs</em> &#124; <em>pat</em>) <em>rhs</em>| |
 |||||
-|<em>cdecls</em>|→|{ <em>cdecl<sub>1</sub></em> <tt>;</tt> … <tt>;</tt> <em>cdecl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
+|<em>cdecls</em>|→|{ <em>cdecl<sub>1</sub></em> <code>;</code> … <code>;</code> <em>cdecl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
 |<em>cdecl</em>|→|<em>gendecl</em>| |
 | |&#124;|	(<em>funlhs</em> &#124; <em>var</em>) <em>rhs</em>| |
 |||||
-|<em>idecls</em>|→|{ <em>idecl<sub>1</sub></em> <tt>;</tt> … <tt>;</tt> <em>idecl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
+|<em>idecls</em>|→|{ <em>idecl<sub>1</sub></em> <code>;</code> … <code>;</code> <em>idecl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
 |<em>idecl</em>|→|(<em>funlhs</em> &#124; <em>var</em>) <em>rhs</em>| |
 | |&#124;|		    |(empty)|
 |||||
-|<em>gendecl</em>|→|<em>vars</em> <tt>::</tt> [<em>context</em> =>] <em>type</em>	    |(type signature)|
+|<em>gendecl</em>|→|<em>vars</em> <code>::</code> [<em>context</em> =>] <em>type</em>	    |(type signature)|
 | |&#124;|	<em>fixity</em> [<em>integer</em>] <em>ops</em>	    |(fixity declaration)|
 | |&#124;|		    |(empty declaration)|
 |||||
-|<em>ops</em>|→|<em>op<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>op<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
-|<em>vars</em>|→|<em>var<sub>1</sub></em> <tt>,</tt> …, <em>var<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
-|<em>fixity</em>|→|<tt>infixl</tt> &#124; <tt>infixr</tt> &#124; <em>infix</em>| |
+|<em>ops</em>|→|<em>op<sub>1</sub></em> <code>,</code> … <code>,</code> <em>op<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
+|<em>vars</em>|→|<em>var<sub>1</sub></em> <code>,</code> …, <em>var<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
+|<em>fixity</em>|→|<code>infixl</code> &#124; <code>infixr</code> &#124; <em>infix</em>| |
 |||||
 |<em>type</em>|→|<em>btype</em> [-> <em>type</em>]	    |(function type)|
 |||||
@@ -331,49 +331,49 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 |||||
 |<em>atype</em>|→|<em>gtycon</em>| |
 | |&#124;|	<em>tyvar</em>| |
-| |&#124;|	( <em>type<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>type<sub>k</sub></em> )	    |(tuple type, <em>k</em> ≥ 2)|
+| |&#124;|	( <em>type<sub>1</sub></em> <code>,</code> … <code>,</code> <em>type<sub>k</sub></em> )	    |(tuple type, <em>k</em> ≥ 2)|
 | |&#124;|	[ <em>type</em> ]	    |(list type)
 | |&#124;|	( <em>type</em> )	    |(parenthesized constructor)
 |||||
 |<em>gtycon</em>|→|<em>qtycon</em>| |
-| |&#124;|	<tt>()</tt>	    |(unit type)
-| |&#124;|	<tt>[]</tt>	    |(list constructor)
-| |&#124;|	<tt>(->)</tt>	    |(function constructor)
-| |&#124;|	<tt>(,{,})</tt>	    |(tupling constructors)
+| |&#124;|	<code>()</code>	    |(unit type)
+| |&#124;|	<code>[]</code>	    |(list constructor)
+| |&#124;|	<code>(->)</code>	    |(function constructor)
+| |&#124;|	<code>(,{,})</code>	    |(tupling constructors)
 |||||
 |<em>context</em>|→|<em>class</em>| |
-| |&#124;|	( <em>class<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>class<sub>n</sub></em> )	    |(<em>n</em> ≥ 0)|
+| |&#124;|	( <em>class<sub>1</sub></em> <code>,</code> … <code>,</code> <em>class<sub>n</sub></em> )	    |(<em>n</em> ≥ 0)|
 |<em>class</em>|→|<em>qtycls</em> <em>tyvar</em>| |
 | |&#124;|	<em>qtycls</em> ( <em>tyvar</em> <em>atype<sub>1</sub></em> … <em>atype<sub>n</sub></em> )	    |(<em>n</em> ≥ 1)|
 |<em>scontext</em>|→|<em>simpleclass</em>| |
-| |&#124;|	( <em>simpleclass<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>simpleclass<sub>n</sub></em> )	    |(<em>n</em> ≥ 0)|
+| |&#124;|	( <em>simpleclass<sub>1</sub></em> <code>,</code> … <code>,</code> <em>simpleclass<sub>n</sub></em> )	    |(<em>n</em> ≥ 0)|
 |<em>simpleclass</em>|→|<em>qtycls</em> <em>tyvar</em>| |
 |||||
 |<em>simpletype</em>|→|<em>tycon</em> <em>tyvar<sub>1</sub></em> … <em>tyvar<sub>k</sub></em>	    |(<em>k</em> ≥ 0)|
 |<em>constrs</em>|→|<em>constr<sub>1</sub></em> &#124; … &#124; <em>constr<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
 |<em>constr</em>|→|<em>con</em> [!] <em>atype<sub>1</sub></em> … [!] <em>atype<sub>k</sub></em>	    |(arity <em>con</em>  =  <em>k</em>, <em>k</em> ≥ 0)|
 | |&#124;|	(<em>btype</em> &#124; ! <em>atype</em>) <em>conop</em> (<em>btype</em> &#124; ! <em>atype</em>)	    |(infix <em>conop</em>)
-| |&#124;|	<em>con</em> { <em>fielddecl<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>fielddecl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
+| |&#124;|	<em>con</em> { <em>fielddecl<sub>1</sub></em> <code>,</code> … <code>,</code> <em>fielddecl<sub>n</sub></em> }	    |(<em>n</em> ≥ 0)|
 |<em>newconstr</em>|→|<em>con</em> <em>atype</em>| |
-| |&#124;|	<em>con</em> { <em>var</em> <tt>::</tt> <em>type</em> }| |
-|<em>fielddecl</em>|→|<em>vars</em> <tt>::</tt> (<em>type</em> &#124; ! <em>atype</em>) |
-|<em>deriving</em>|→|<tt>deriving</tt> (dclass &#124; (<em>dclass<tt>1</tt></em>, … <tt>,</tt> <em>dclass<sub>n</sub></em>))	    |(<em>n</em> ≥ 0)|
+| |&#124;|	<em>con</em> { <em>var</em> <code>::</code> <em>type</em> }| |
+|<em>fielddecl</em>|→|<em>vars</em> <code>::</code> (<em>type</em> &#124; ! <em>atype</em>) |
+|<em>deriving</em>|→|<code>deriving</code> (dclass &#124; (<em>dclass<code>1</code></em>, … <code>,</code> <em>dclass<sub>n</sub></em>))	    |(<em>n</em> ≥ 0)|
 |<em>dclass</em>|→|<em>qtycls</em>| |
 |||||
 |<em>inst</em>|→|<em>gtycon</em>| |
 | |&#124;|	( <em>gtycon</em> <em>tyvar<sub>1</sub></em> … <em>tyvar<sub>k</sub></em> )	    |(<em>k</em> ≥ 0, <em>tyvars</em> distinct)
-| |&#124;|	( <em>tyvar<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>tyvar<sub>k</sub></em> )	    |(<em>k</em> ≥ 2, <em>tyvars</em> distinct)
+| |&#124;|	( <em>tyvar<sub>1</sub></em> <code>,</code> … <code>,</code> <em>tyvar<sub>k</sub></em> )	    |(<em>k</em> ≥ 2, <em>tyvars</em> distinct)
 | |&#124;|	[ <em>tyvar</em> ]| |
 | |&#124;|	( <em>tyvar<sub>1</sub></em> -> <em>tyvar<sub>2</sub></em> )	    |<em>tyvar<sub>1</sub></em> and <em>tyvar<sub>2</sub></em> distinct|
 |||||
-|<em>fdecl</em>|→|<tt>import</tt> <em>callconv</em> [<em>safety</em>] <em>impent</em> <em>var</em> <tt>::</tt> <em>ftype</em>	    |(define variable)|
-| |&#124;|	<tt>export</tt> <em>callconv</em> <em>expent</em> <em>var</em> <tt>::</tt> <em>ftype</em>	    |(expose variable)|
-|<em>callconv</em>|→|<tt>ccall</tt> &#124; <tt>stdcall</tt> &#124; <tt>cplusplus</tt>	    |(calling convention)|
-| |&#124;|	<tt>jvm</tt> &#124; <tt>dotnet</tt>| |
+|<em>fdecl</em>|→|<code>import</code> <em>callconv</em> [<em>safety</em>] <em>impent</em> <em>var</em> <code>::</code> <em>ftype</em>	    |(define variable)|
+| |&#124;|	<code>export</code> <em>callconv</em> <em>expent</em> <em>var</em> <code>::</code> <em>ftype</em>	    |(expose variable)|
+|<em>callconv</em>|→|<code>ccall</code> &#124; <code>stdcall</code> &#124; <code>cplusplus</code>	    |(calling convention)|
+| |&#124;|	<code>jvm</code> &#124; <code>dotnet</code>| |
 | |&#124;|	 **system-specific calling conventions**| |
 |<em>impent</em>|→|[<em>string</em>]	    |(see Section [8.5.1]("./8-foreign-function-interface.md"))|
 |<em>expent</em>|→|[<em>string</em>]	    |(see Section [8.5.1]("./8-foreign-function-interface.md"))|
-|<em>safety</em>|→|<tt>unsafe</tt> &#124; <tt>safe</tt>| |
+|<em>safety</em>|→|<code>unsafe</code> &#124; <code>safe</code>| |
 |||||
 |<em>ftype</em>|→|<em>frtype</em>| |
 | |&#124;|	<em>fatype</em> → <em>ftype</em>| |
@@ -385,17 +385,17 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 | |&#124;|	<em>pat</em> <em>varop</em> <em>pat</em>| |
 | |&#124;|	( <em>funlhs</em> ) <em>apat</em> { <em>apat</em> }| |
 |||||
-|<em>rhs</em>|→|= <em>exp</em> [<tt>where</tt> <em>decls</em>]| |
-| |&#124;|	<em>gdrhs</em> [<tt>where</tt> <em>decls</em>]| |
+|<em>rhs</em>|→|= <em>exp</em> [<code>where</code> <em>decls</em>]| |
+| |&#124;|	<em>gdrhs</em> [<code>where</code> <em>decls</em>]| |
 |||||
 |<em>gdrhs</em>|→|<em>guards</em> = <em>exp</em> [<em>gdrhs</em>]| |
 |||||
 |<em>guards</em>|→|&#124; <em>guard<sub>1</sub></em>, …, <em>guard<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
 |<em>guard</em>|→|<em>pat</em> <- <em>infixexp</em>	    |(pattern guard)|
-| |&#124;|	<tt>let</tt> <em>decls</em>	    |(local declaration)|
+| |&#124;|	<code>let</code> <em>decls</em>	    |(local declaration)|
 | |&#124;|	<em>infixexp</em>	    |(boolean guard)|
 |||||
-|<em>exp</em>|→|<em>infixexp</em> <tt>::</tt> [<em>context</em> =>] <em>type</em>	    |(expression type signature)|
+|<em>exp</em>|→|<em>infixexp</em> <code>::</code> [<em>context</em> =>] <em>type</em>	    |(expression type signature)|
 | |&#124;|	<em>infixexp</em>| |
 |||||
 |<em>infixexp</em>|→|<em>lexp</em> <em>qop</em> <em>infixexp</em>	    |(infix operator application)|
@@ -403,10 +403,10 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 | |&#124;|	<em>lexp</em>| |
 |||||
 |<em>lexp</em>|→|\ <em>apat<sub>1</sub></em> … <em>apat<sub>n</sub></em> -> <em>exp</em>	    |(lambda abstraction, <em>n</em> ≥ 1)|
-| |&#124;|	<tt>let</tt> <em>decls</em> <tt>in</tt> <em>exp</em>	    |(let expression)|
-| |&#124;|	<tt>if</tt> <em>exp</em> [<tt>;</tt>] <tt>then</tt> <em>exp</em> [<tt>;</tt>] <tt>else</tt> <em>exp</em>	    |(conditional)|
-| |&#124;|	<tt>case</tt> <em>exp</em> <tt>of</tt> { <em>alts</em> }	    |(case expression)|
-| |&#124;|	<tt>do</tt> { <em>stmts</em> }	    |(do expression)|
+| |&#124;|	<code>let</code> <em>decls</em> <code>in</code> <em>exp</em>	    |(let expression)|
+| |&#124;|	<code>if</code> <em>exp</em> [<code>;</code>] <code>then</code> <em>exp</em> [<code>;</code>] <code>else</code> <em>exp</em>	    |(conditional)|
+| |&#124;|	<code>case</code> <em>exp</em> <code>of</code> { <em>alts</em> }	    |(case expression)|
+| |&#124;|	<code>do</code> { <em>stmts</em> }	    |(do expression)|
 | |&#124;|	<em>fexp</em>| |
 |<em>fexp</em>|→|[<em>fexp</em>] <em>aexp</em>	    |(function application)|
 |||||
@@ -414,31 +414,31 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 | |&#124;|	<em>gcon</em>	    |(general constructor)|
 | |&#124;|	<em>literal</em>| |
 | |&#124;|	( <em>exp</em> )	    |(parenthesized expression)|
-| |&#124;|	( <em>exp<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>exp<sub>k</sub></em> )	    |(tuple, <em>k</em> ≥ 2)|
-| |&#124;|	[ <em>exp<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>exp<sub>k</sub></em> ]	    |(list, <em>k</em> ≥ 1)|
-| |&#124;|	[ <em>exp<sub>1</sub></em> [<tt>,</tt> <em>exp<sub>2</sub></em>] .. [<em>exp<sub>3</sub></em>] ]	    |(arithmetic sequence)|
-| |&#124;|	[ <em>exp</em> &#124; <em>qual<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>qual<sub>n</sub></em> ]	    |(list comprehension, <em>n</em> ≥ 1)|
+| |&#124;|	( <em>exp<sub>1</sub></em> <code>,</code> … <code>,</code> <em>exp<sub>k</sub></em> )	    |(tuple, <em>k</em> ≥ 2)|
+| |&#124;|	[ <em>exp<sub>1</sub></em> <code>,</code> … <code>,</code> <em>exp<sub>k</sub></em> ]	    |(list, <em>k</em> ≥ 1)|
+| |&#124;|	[ <em>exp<sub>1</sub></em> [<code>,</code> <em>exp<sub>2</sub></em>] .. [<em>exp<sub>3</sub></em>] ]	    |(arithmetic sequence)|
+| |&#124;|	[ <em>exp</em> &#124; <em>qual<sub>1</sub></em> <code>,</code> … <code>,</code> <em>qual<sub>n</sub></em> ]	    |(list comprehension, <em>n</em> ≥ 1)|
 | |&#124;|	( <em>infixexp</em> <em>qop</em> )	    |(left section)
 | |&#124;|	( <em>qop</em>⟨-⟩ <em>infixexp</em> )	    |(right section)
-| |&#124;|	<em>qcon</em> { <em>fbind<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>fbind<sub>n</sub></em> }	    |(labeled construction, <em>n</em> ≥ 0)|
-| |&#124;|	<em>aexp</em>⟨qcon⟩ { <em>fbind<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>fbind<sub>n</sub></em> }	    |(labeled update, <em>n</em>  ≥  1)|
+| |&#124;|	<em>qcon</em> { <em>fbind<sub>1</sub></em> <code>,</code> … <code>,</code> <em>fbind<sub>n</sub></em> }	    |(labeled construction, <em>n</em> ≥ 0)|
+| |&#124;|	<em>aexp</em>⟨qcon⟩ { <em>fbind<sub>1</sub></em> <code>,</code> … <code>,</code> <em>fbind<sub>n</sub></em> }	    |(labeled update, <em>n</em>  ≥  1)|
 |||||
 |<em>qual</em>|→|<em>pat</em> <- <em>exp</em>	    |(generator)|
-| |&#124;|	<tt>let</tt> <em>decls</em>	    |(local declaration)
+| |&#124;|	<code>let</code> <em>decls</em>	    |(local declaration)
 | |&#124;|	<em>exp</em>	    |(guard)|
 |||||
-|<em>alts</em>|→|<em>alt<sub>1</sub></em> <tt>;</tt> … <tt>;</tt> <em>alt<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
-|<em>alt</em>|→|<em>pat</em> -> <em>exp</em> [<tt>where</tt> <em>decls</em>]| |
-| |&#124;|	<em>pat</em> <em>gdpat</em> [<tt>where</tt> <em>decls</em>]| |
+|<em>alts</em>|→|<em>alt<sub>1</sub></em> <code>;</code> … <code>;</code> <em>alt<sub>n</sub></em>	    |(<em>n</em> ≥ 1)|
+|<em>alt</em>|→|<em>pat</em> -> <em>exp</em> [<code>where</code> <em>decls</em>]| |
+| |&#124;|	<em>pat</em> <em>gdpat</em> [<code>where</code> <em>decls</em>]| |
 | |&#124;|		    |(empty alternative)|
 |||||
 |<em>gdpat</em>|→|<em>guards</em> -> <em>exp</em> [ <em>gdpat</em> ]| |
 |||||
-|<em>stmts</em>|→|<em>stmt<sub>1</sub></em> … <em>stmt<sub>n</sub></em> <em>exp</em> [<tt>;</tt>]	    |(<em>n</em> ≥ 0)|
+|<em>stmts</em>|→|<em>stmt<sub>1</sub></em> … <em>stmt<sub>n</sub></em> <em>exp</em> [<code>;</code>]	    |(<em>n</em> ≥ 0)|
 |<em>stmt</em>|→|<em>exp</em> ;| |
 | |&#124;|	<em>pat</em> <- <em>exp</em> ;| |
-| |&#124;|	<tt>let</tt> <em>decls</em> ;| |
-| |&#124;|	<tt>;</tt>	    |(<em>empty statement</em>)|
+| |&#124;|	<code>let</code> <em>decls</em> ;| |
+| |&#124;|	<code>;</code>	    |(<em>empty statement</em>)|
 |||||
 |<em>fbind</em>|→|<em>qvar</em> = <em>exp</em>| |
 |||||
@@ -451,12 +451,12 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 |||||
 |<em>apat</em>|→|<em>var</em> [ @ <em>apat</em>]	    |(as pattern)
 | |&#124;|	<em>gcon</em>	    |(arity <em>gcon</em>  =  0)|
-| |&#124;|	<em>qcon</em> { <em>fpat<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>fpat<sub>k</sub></em> }	    |(labeled pattern, <em>k</em> ≥ 0)|
+| |&#124;|	<em>qcon</em> { <em>fpat<sub>1</sub></em> <code>,</code> … <code>,</code> <em>fpat<sub>k</sub></em> }	    |(labeled pattern, <em>k</em> ≥ 0)|
 | |&#124;|	<em>literal</em>| |
 | |&#124;|	<em>_</em>	    |(wildcard)|
 | |&#124;|	( <em>pat</em> )	    |(parenthesized pattern)
-| |&#124;|	( <em>pat<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>pat<sub>k</sub></em> )	    |(tuple pattern, <em>k</em> ≥ 2)|
-| |&#124;|	[ <em>pat<sub>1</sub></em> <tt>,</tt> … <tt>,</tt> <em>pat<sub>k</sub></em> ]	    |(list pattern, <em>k</em> ≥ 1)|
+| |&#124;|	( <em>pat<sub>1</sub></em> <code>,</code> … <code>,</code> <em>pat<sub>k</sub></em> )	    |(tuple pattern, <em>k</em> ≥ 2)|
+| |&#124;|	[ <em>pat<sub>1</sub></em> <code>,</code> … <code>,</code> <em>pat<sub>k</sub></em> ]	    |(list pattern, <em>k</em> ≥ 1)|
 | |&#124;|	~ <em>apat</em>	    |(irrefutable pattern)
 |||||
 |<em>fpat</em>|→|<em>qvar</em> = <em>pat</em>| |
@@ -476,7 +476,7 @@ main =  print [ (n, product [1..n]) | n <- [1..20]]
 |<em>qconop</em>|→|<em>gconsym</em> &#124; <em>\`</em>  <em>qconid</em> <em>\`</em>	    |(qualified <em>constructor</em> operator)
 |<em>op</em>|→|<em>varop</em> &#124; <em>conop</em>	    |(operator)|
 |<em>qop</em>|→|<em>qvarop</em> &#124; <em>qconop</em>	    |(qualified operator)
-|<em>gconsym</em>|→|<tt>:</tt> &#124; <em>qconsym</em>| |
+|<em>gconsym</em>|→|<code>:</code> &#124; <em>qconsym</em>| |
 
 ## 結合性解決
 
